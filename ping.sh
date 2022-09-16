@@ -34,7 +34,10 @@ if [ -n "$NOTIFICATION" ]; then
     echo "Notification already scheduled in the future."
     echo $NOTIFICATION
     TIME=$(printf "%s" "$NOTIFICATION" | jq -r '.time')
-    PRETTY_TIME=$(date -jf "%s" "$TIME" "+%D %T")
+
+    # Format the time for display using a portable technique.
+    PRETTY_TIME=$(date -r "$TIME" "+%D %T")
+
     echo "Scheduled for $PRETTY_TIME"
     echo "Exiting."
     exit 0
