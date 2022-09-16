@@ -12,4 +12,4 @@ jobs:
       - name: Get scheduled notifications
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-        run: ./ntfy.sh
+        run: ./ping.sh
