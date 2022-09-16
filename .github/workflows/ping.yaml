@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Get scheduled notifications
+      - name: Shcedule notification
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: ./ping.sh

@@ -1,7 +1,10 @@
 # exit when any command fails
 set -e
 
-export $(grep -v '^#' .env | xargs)
+# load .env file if it exists
+if [ -f .env ]; then
+    export $(grep -v '^#' .env | xargs)
+fi
 
 RESPONSE=$(curl -s "https://www.beeminder.com/api/v1/users/$BM_USER/goals.json?auth_token=$BM_TOKEN")
 NOW=$(date "+%s")
